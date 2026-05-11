@@ -15,6 +15,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PoliciesRouteImport } from './routes/policies'
 import { Route as LaserTagRouteImport } from './routes/laser-tag'
 import { Route as HousePartyRouteImport } from './routes/house-party'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AddOnsRouteImport } from './routes/add-ons'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +50,11 @@ const HousePartyRoute = HousePartyRouteImport.update({
   path: '/house-party',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AddOnsRoute = AddOnsRouteImport.update({
   id: '/add-ons',
   path: '/add-ons',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/add-ons': typeof AddOnsRoute
+  '/contact': typeof ContactRoute
   '/house-party': typeof HousePartyRoute
   '/laser-tag': typeof LaserTagRoute
   '/policies': typeof PoliciesRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/add-ons': typeof AddOnsRoute
+  '/contact': typeof ContactRoute
   '/house-party': typeof HousePartyRoute
   '/laser-tag': typeof LaserTagRoute
   '/policies': typeof PoliciesRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/add-ons': typeof AddOnsRoute
+  '/contact': typeof ContactRoute
   '/house-party': typeof HousePartyRoute
   '/laser-tag': typeof LaserTagRoute
   '/policies': typeof PoliciesRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/add-ons'
+    | '/contact'
     | '/house-party'
     | '/laser-tag'
     | '/policies'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/add-ons'
+    | '/contact'
     | '/house-party'
     | '/laser-tag'
     | '/policies'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/add-ons'
+    | '/contact'
     | '/house-party'
     | '/laser-tag'
     | '/policies'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AddOnsRoute: typeof AddOnsRoute
+  ContactRoute: typeof ContactRoute
   HousePartyRoute: typeof HousePartyRoute
   LaserTagRoute: typeof LaserTagRoute
   PoliciesRoute: typeof PoliciesRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HousePartyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/add-ons': {
       id: '/add-ons'
       path: '/add-ons'
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AddOnsRoute: AddOnsRoute,
+  ContactRoute: ContactRoute,
   HousePartyRoute: HousePartyRoute,
   LaserTagRoute: LaserTagRoute,
   PoliciesRoute: PoliciesRoute,

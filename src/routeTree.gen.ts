@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VrRouteImport } from './routes/vr'
+import { Route as ServiceAreaRouteImport } from './routes/service-area'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PoliciesRouteImport } from './routes/policies'
+import { Route as LaserTagRouteImport } from './routes/laser-tag'
+import { Route as HousePartyRouteImport } from './routes/house-party'
+import { Route as AddOnsRouteImport } from './routes/add-ons'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VrRoute = VrRouteImport.update({
+  id: '/vr',
+  path: '/vr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreaRoute = ServiceAreaRouteImport.update({
+  id: '/service-area',
+  path: '/service-area',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliciesRoute = PoliciesRouteImport.update({
+  id: '/policies',
+  path: '/policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaserTagRoute = LaserTagRouteImport.update({
+  id: '/laser-tag',
+  path: '/laser-tag',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HousePartyRoute = HousePartyRouteImport.update({
+  id: '/house-party',
+  path: '/house-party',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AddOnsRoute = AddOnsRouteImport.update({
+  id: '/add-ons',
+  path: '/add-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/add-ons': typeof AddOnsRoute
+  '/house-party': typeof HousePartyRoute
+  '/laser-tag': typeof LaserTagRoute
+  '/policies': typeof PoliciesRoute
+  '/pricing': typeof PricingRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/vr': typeof VrRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/add-ons': typeof AddOnsRoute
+  '/house-party': typeof HousePartyRoute
+  '/laser-tag': typeof LaserTagRoute
+  '/policies': typeof PoliciesRoute
+  '/pricing': typeof PricingRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/vr': typeof VrRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/add-ons': typeof AddOnsRoute
+  '/house-party': typeof HousePartyRoute
+  '/laser-tag': typeof LaserTagRoute
+  '/policies': typeof PoliciesRoute
+  '/pricing': typeof PricingRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/vr': typeof VrRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/add-ons'
+    | '/house-party'
+    | '/laser-tag'
+    | '/policies'
+    | '/pricing'
+    | '/service-area'
+    | '/vr'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/add-ons'
+    | '/house-party'
+    | '/laser-tag'
+    | '/policies'
+    | '/pricing'
+    | '/service-area'
+    | '/vr'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/add-ons'
+    | '/house-party'
+    | '/laser-tag'
+    | '/policies'
+    | '/pricing'
+    | '/service-area'
+    | '/vr'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AddOnsRoute: typeof AddOnsRoute
+  HousePartyRoute: typeof HousePartyRoute
+  LaserTagRoute: typeof LaserTagRoute
+  PoliciesRoute: typeof PoliciesRoute
+  PricingRoute: typeof PricingRoute
+  ServiceAreaRoute: typeof ServiceAreaRoute
+  VrRoute: typeof VrRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vr': {
+      id: '/vr'
+      path: '/vr'
+      fullPath: '/vr'
+      preLoaderRoute: typeof VrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-area': {
+      id: '/service-area'
+      path: '/service-area'
+      fullPath: '/service-area'
+      preLoaderRoute: typeof ServiceAreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policies': {
+      id: '/policies'
+      path: '/policies'
+      fullPath: '/policies'
+      preLoaderRoute: typeof PoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laser-tag': {
+      id: '/laser-tag'
+      path: '/laser-tag'
+      fullPath: '/laser-tag'
+      preLoaderRoute: typeof LaserTagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house-party': {
+      id: '/house-party'
+      path: '/house-party'
+      fullPath: '/house-party'
+      preLoaderRoute: typeof HousePartyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/add-ons': {
+      id: '/add-ons'
+      path: '/add-ons'
+      fullPath: '/add-ons'
+      preLoaderRoute: typeof AddOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +217,25 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AddOnsRoute: AddOnsRoute,
+  HousePartyRoute: HousePartyRoute,
+  LaserTagRoute: LaserTagRoute,
+  PoliciesRoute: PoliciesRoute,
+  PricingRoute: PricingRoute,
+  ServiceAreaRoute: ServiceAreaRoute,
+  VrRoute: VrRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
